@@ -7,7 +7,7 @@ Learn how to create and manage a Resource Group in Azure and apply locks to prot
 ## Resource Group Creation
 - Resource Group Name: `khem`
 - Location: West US 
-- Screenshot: ![Resource Group Created](screenshots/rg.png)
+- Screenshot: ![Resource Group Created](01_ResourceGroups/Screenshots/rg.png)
 
 ## Azure Locks
 - Applied **Read-only lock** to RG `khem`.
