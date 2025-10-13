@@ -6,7 +6,7 @@ Learn how to create and manage a Resource Group in Azure and apply locks to prot
 
 ## Resource Group Creation
 - Resource Group Name: `khem`
-- Location: East US (example)
+- Location: West US 
 - Screenshot: ![Resource Group Created](screenshots/rg_created.png)
 
 ## Azure Locks
