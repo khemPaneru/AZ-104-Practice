@@ -1,0 +1,87 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworks_KHEMnetwork2_name": {
+            "type": "String",
+            "defaultValue": "KHEMnetwork2",
+            "metadata": {
+                "description": "Name of the virtual network"
+            }
+        },
+        "location": {
+            "type": "String",
+            "defaultValue": "westus",
+            "metadata": {
+                "description": "Azure region where resources will be created"
+            }
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2024-07-01",
+            "name": "[parameters('virtualNetworks_KHEMnetwork2_name')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.30.0.0/16"
+                    ]
+                },
+                "enableDdosProtection": false,
+                "encryption": {
+                    "enabled": false,
+                    "enforcement": "AllowUnencrypted"
+                },
+                "privateEndpointVNetPolicies": "Disabled",
+                "subnets": [
+                    {
+                        "name": "default",
+                        "properties": {
+                            "addressPrefixes": [
+                                "10.30.0.0/24"
+                            ],
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Disabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    },
+                    {
+                        "name": "SensorSubnet1",
+                        "properties": {
+                            "addressPrefixes": [
+                                "10.30.20.0/24"
+                            ],
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Disabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    },
+                    {
+                        "name": "default2",
+                        "properties": {
+                            "addressPrefixes": [
+                                "10.30.21.0/24"
+                            ],
+                            "delegations": [],
+                            "privateEndpointNetworkPolicies": "Disabled",
+                            "privateLinkServiceNetworkPolicies": "Enabled"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {
+        "vnetName": {
+            "type": "string",
+            "value": "[parameters('virtualNetworks_KHEMnetwork2_name')]"
+        },
+        "location": {
+            "type": "string",
+            "value": "[parameters('location')]"
+        }
+    }
+}
